@@ -1,0 +1,351 @@
+category: Utilities
+commonfields:
+  id: CybPortalLists
+  version: -1
+configuration:
+- display: 'Server URL'
+  additionalinfo: 'e.g. https://cybersecurity'
+  name: url
+  required: true
+  type: 0
+- display: 'App ID'
+  name: credentials
+  type: 9
+  required: true
+- display: 'Trust any certificate (not secure)'
+  name: insecure
+  required: false
+  type: 8
+description: 'Allows working from Cortex XSOAR with lists defined in Telefonica Cybersecurity Portal.'
+display: 'Cybersecurity Portal Lists'
+name: CybPortalLists
+script:
+  commands:
+  - name: tc2tech-portal-lists-get
+    description: 'Get all lists matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: list_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: service_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: generic
+      required: false
+      description: 'Whether the result should be a generic SOC list or not.'
+    - name: filter
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: fields
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: limit
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: offset
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: sort
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    outputs:
+    - contextPath: Telefonica.Portal.Lists
+      description: 'Command execution results.'
+  - name: tc2tech-portal-lists-create
+    description: 'Create a new portal list.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: data
+      required: true
+      description: 'Data to create the list.'
+    outputs:
+    - contextPath: Telefonica.Portal.Lists
+      description: 'Command execution results.'
+  - name: tc2tech-portal-lists-update
+    description: 'Update portal list parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: list_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: data
+      required: true
+      description: 'Data to update the list.'
+    outputs:
+    - contextPath: Telefonica.Portal.Lists
+      description: 'Command execution results.'
+  - name: tc2tech-portal-lists-delete
+    description: 'Delete portal lists matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: list_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    outputs:
+    - contextPath: Telefonica.Portal.Lists
+      description: 'Command execution results.'
+  - name: tc2tech-portal-rows-get
+    description: 'Get all rows matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: row_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: filter
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: fields
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: limit
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: offset
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: sort
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    outputs:
+    - contextPath: Telefonica.Portal.Rows
+      description: 'Command execution results.'
+  - name: tc2tech-portal-rows-create
+    description: 'Create new rows in a portal list.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: data
+      required: true
+      description: 'Data to create the rows.'
+    outputs:
+    - contextPath: Telefonica.Portal.Rows
+      description: 'Command execution results.'
+  - name: tc2tech-portal-rows-update
+    description: 'Update portal list rows.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: row_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: data
+      required: true
+      description: 'Data to update the rows.'
+    outputs:
+    - contextPath: Telefonica.Portal.Rows
+      description: 'Command execution results.'
+  - name: tc2tech-portal-rows-delete
+    description: 'Delete rows matching the search filters in a specific portal list.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: row_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    outputs:
+    - contextPath: Telefonica.Portal.Rows
+      description: 'Command execution results.'
+  - name: tc2tech-portal-versions-get
+    description: 'Get all versions matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: filter
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: fields
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: limit
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: offset
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: sort
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    outputs:
+    - contextPath: Telefonica.Portal.Versions
+      description: 'Command execution results.'
+  - name: tc2tech-portal-tags-get
+    description: 'Get all tags matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: tag_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: filter
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: fields
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: limit
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: offset
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: sort
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    outputs:
+    - contextPath: Telefonica.Portal.Tags
+      description: 'Command execution results.'
+  - name: tc2tech-portal-tags-update
+    description: 'Update tag definitions.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: data
+      required: true
+      description: 'Tag definitions.'
+    outputs:
+    - contextPath: Telefonica.Portal.Tags
+      description: 'Command execution results.'
+  - name: tc2tech-portal-catalogs-get
+    description: 'Get all rows in a catalog matching the search parameters.'
+    arguments:
+    - name: tenant_id
+      required: true
+      description: 'Can be extracted from the URL.'
+    - name: soc_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: client_id
+      required: false
+      description: 'Can be extracted from the URL.'
+    - name: external_id
+      required: false
+      description: 'See the corresponding section in the Cybersecurity Portal.'
+    - name: filter
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: fields
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: limit
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: offset
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    - name: sort
+      required: false
+      description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
+    outputs:
+    - contextPath: Telefonica.Portal.Catalogs
+      description: 'Command execution results.'
+  isfetch: false
+  runonce: false
+  script: '-'
+  type: python
+  subtype: python3
+  dockerimage: demisto/pyjwt3:1.0.0.34355
+autoUpdateDockerImage: true
+fromversion: 6.5.0
+tests:
+- No tests (auto formatted)
