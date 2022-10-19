@@ -1,0 +1,25 @@
+{
+    "name": "Telefonica Cybersecurity Portal",
+    "description": "The Cybersecurity Portal of Telefonica centralizes the management of security services for its clients.",
+    "support": "developer",
+    "currentVersion": "1.0.0",
+    "author": "Sergio Andrea Constantino Noguera",
+    "url": "https://cybersecurity.telefonica.com",
+    "email": "global_automatizacion_orquestacion@telefonica.com",
+    "categories": [
+        "Utilities"
+    ],
+    "tags": [],
+    "useCases": [],
+    "keywords": ["telefonica"],
+    "marketplaces": [
+        "xsoar",
+        "marketplacev2"
+    ],
+    "devEmail": [
+        "global_automatizacion_orquestacion@telefonica.com"
+    ],
+    "githubUser": [
+        "SergioConstantino"
+    ]
+}
