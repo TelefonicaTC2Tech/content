@@ -1,10 +1,10 @@
 {
-    "id": "incident_portalsocid",
+    "id": "incident_tc2techportalsocid",
     "version": -1,
     "modified": "2022-10-20T10:00:00+02:00",
-    "name": "Telefonica Cybersecurity Portal SOC ID",
+    "name": "TC2Tech SOC ID",
     "ownerOnly": false,
-    "cliName": "portalsocid",
+    "cliName": "tc2techportalsocid",
     "description": "SOC ID in Telefonica Cybersecurity Portal",
     "type": "number",
     "closeForm": false,
