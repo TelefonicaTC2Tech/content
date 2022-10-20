@@ -1,0 +1,28 @@
+{
+    "name": "Telefonica OCM",
+    "description": "OCM utils used by most service developments.",
+    "support": "developer",
+    "currentVersion": "1.0.0",
+    "author": "Sergio Andrea Constantino Noguera",
+    "url": "https://cybersecurity.telefonica.com",
+    "email": "global_automatizacion_orquestacion@telefonica.com",
+    "categories": [
+        "Utilities"
+    ],
+    "itemPrefix": [
+        "TC2Tech"
+    ],
+    "tags": [],
+    "useCases": [],
+    "keywords": [],
+    "marketplaces": [
+        "xsoar",
+        "marketplacev2"
+    ],
+    "devEmail": [
+        "global_automatizacion_orquestacion@telefonica.com"
+    ],
+    "githubUser": [
+        "SergioConstantino"
+    ]
+}
