@@ -1,0 +1,23 @@
+{
+    "description": "Raw event mapper.",
+    "feed": false,
+    "id": "classifier-mapper-incoming-Raw",
+    "mapping": {
+        "dbot_classification_incident_type_all": {
+            "dontMapEventToLabels": true,
+            "internalMapping": {
+                "TC2Tech Raw": {
+                    "complex": {
+                        "filters": [],
+                        "root": ".",
+                        "transformers": []
+                    }
+                }
+            }
+        }
+    },
+    "name": "classifier-mapper-incoming-Raw",
+    "type": "mapping-incoming",
+    "version": -1,
+    "fromVersion": "6.5.0"
+}
