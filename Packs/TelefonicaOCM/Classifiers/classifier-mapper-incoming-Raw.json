@@ -1,7 +1,7 @@
 {
     "description": "Raw event mapper.",
     "feed": false,
-    "id": "classifier-mapper-incoming-Raw",
+    "id": "Raw Mapper",
     "mapping": {
         "dbot_classification_incident_type_all": {
             "dontMapEventToLabels": true,
@@ -16,7 +16,7 @@
             }
         }
     },
-    "name": "classifier-mapper-incoming-Raw",
+    "name": "Raw Mapper",
     "type": "mapping-incoming",
     "version": -1,
     "fromVersion": "6.5.0"
