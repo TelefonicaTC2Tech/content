@@ -9,6 +9,9 @@
     "categories": [
         "Utilities"
     ],
+    "itemPrefix": [
+        "TC2Tech"
+    ],
     "tags": [],
     "useCases": [],
     "keywords": ["telefonica"],
