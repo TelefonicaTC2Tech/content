@@ -1,0 +1,22 @@
+{
+    "id": "CleanEmail Message",
+    "version": -1,
+    "playbookId": "CE-OCM-Security",
+    "locked": true,
+    "name": "CleanEmail Message",
+    "prevName": "CleanEmail Message",
+    "color": "#2F7DC9",
+    "hours": 0,
+    "days": 0,
+    "weeks": 0,
+    "hoursR": 0,
+    "daysR": 0,
+    "weeksR": 0,
+    "system": false,
+    "readonly": false,
+    "default": false,
+    "autorun": true,
+    "disabled": false,
+    "reputationCalc": 1,
+    "fromVersion": "6.5.0"
+}
