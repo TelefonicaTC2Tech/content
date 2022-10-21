@@ -1,10 +1,10 @@
 {
-    "id": "incident_tc2techportalclientid",
+    "id": "incident_tc2techclientid",
     "version": -1,
     "modified": "2022-10-20T10:00:00+02:00",
     "name": "TC2Tech Client ID",
     "ownerOnly": false,
-    "cliName": "tc2techportalclientid",
+    "cliName": "tc2techclientid",
     "description": "Client ID in Telefonica Cybersecurity Portal",
     "type": "number",
     "closeForm": false,
