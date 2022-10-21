@@ -1,0 +1,17 @@
+[
+    {
+        "name": "DESOPSE",
+        "portal": {
+            "soc_id": 1,
+            "tenant_id": 1,
+            "client_id": 7203
+        },
+        "eml": {
+            "proofpoint": {
+                "tap": {
+                    "instance": "Proofpoint_TAP_v2_DESOPSE"
+                }
+            }
+        }
+    }
+]

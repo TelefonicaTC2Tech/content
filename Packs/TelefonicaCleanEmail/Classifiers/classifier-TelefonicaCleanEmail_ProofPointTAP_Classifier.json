@@ -1,0 +1,22 @@
+{
+    "description": "Messages are separated from clicks, regardless of their status.",
+    "feed": false,
+    "id": "TC2Tech Proofpoint TAP Classifier",
+    "keyTypeMap": {
+        "clicks blocked": "CleanEmail Click",
+        "clicks permitted": "CleanEmail Click",
+        "messages blocked": "CleanEmail Message",
+        "messages delivered": "CleanEmail Message"
+    },
+    "name": "TC2Tech Proofpoint TAP Classifier",
+    "propagationLabels": [
+        "all"
+    ],
+    "transformer": {
+        "complex": null,
+        "simple": "type"
+    },
+    "type": "classification",
+    "version": -1,
+    "fromVersion": "6.0.0"
+}

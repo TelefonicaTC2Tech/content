@@ -1,0 +1,29 @@
+{
+    "name": "Telefonica Clean Email",
+    "description": "Clean Email offers managed email security.",
+    "support": "developer",
+    "currentVersion": "1.0.0",
+    "author": "Sergio Andrea Constantino Noguera",
+    "url": "https://cybersecurity.telefonica.com",
+    "email": "global_automatizacion_orquestacion@telefonica.com",
+    "categories": [
+        "Email Gateway"
+    ],
+    "tags": [
+        "Email",
+        "Spam",
+        "Scam"
+    ],
+    "useCases": [],
+    "keywords": [],
+    "marketplaces": [
+        "xsoar",
+        "marketplacev2"
+    ],
+    "devEmail": [
+        "global_automatization_orquestacion@telefonica.com"
+    ],
+    "githubUser": [
+        "SergioConstantino"
+    ]
+}
