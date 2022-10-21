@@ -21,17 +21,19 @@ def main(**kwargs):
             },
         )
 
-        if portal_ids is None:
+        if any(
+            (portal_ids is None, isinstance(portal_ids, str) and portal_ids == "None")
+        ):
             raise Exception(f"Client with instance {instance} not found.")
 
-        cf = inc["CustomFields"]
-        cf |= {
-            "tc2techtenantid": portal_ids["tenant_id"],
-            "tc2techsocid": portal_ids["soc_id"],
-            "tc2techclientid": portal_ids["client_id"],
-        }
-
-        execute_command("setIncident", {"customFields": cf})
+        execute_command(
+            "setIncident",
+            {
+                "tc2techtenantid": portal_ids["tenant_id"],
+                "tc2techsocid": portal_ids["soc_id"],
+                "tc2techclientid": portal_ids["client_id"],
+            },
+        )
 
     except Exception:
         return_error("\n".join((MODULE_NAME, "Error:", traceback.format_exc())))
