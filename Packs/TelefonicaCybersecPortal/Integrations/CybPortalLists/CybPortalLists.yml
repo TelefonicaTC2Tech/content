@@ -61,7 +61,7 @@ script:
       required: false
       description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
     outputs:
-    - contextPath: Telefonica.Portal.Lists
+    - contextPath: TC2Tech.Portal.Lists
       description: 'Command execution results.'
   - name: tc2tech-portal-lists-create
     description: 'Create a new portal list.'
@@ -79,7 +79,7 @@ script:
       required: true
       description: 'Data to create the list.'
     outputs:
-    - contextPath: Telefonica.Portal.Lists
+    - contextPath: TC2Tech.Portal.Lists
       description: 'Command execution results.'
   - name: tc2tech-portal-lists-update
     description: 'Update portal list parameters.'
@@ -100,7 +100,7 @@ script:
       required: true
       description: 'Data to update the list.'
     outputs:
-    - contextPath: Telefonica.Portal.Lists
+    - contextPath: TC2Tech.Portal.Lists
       description: 'Command execution results.'
   - name: tc2tech-portal-lists-delete
     description: 'Delete portal lists matching the search parameters.'
@@ -118,7 +118,7 @@ script:
       required: false
       description: 'Can be extracted from the URL.'
     outputs:
-    - contextPath: Telefonica.Portal.Lists
+    - contextPath: TC2Tech.Portal.Lists
       description: 'Command execution results.'
   - name: tc2tech-portal-rows-get
     description: 'Get all rows matching the search parameters.'
@@ -154,7 +154,7 @@ script:
       required: false
       description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
     outputs:
-    - contextPath: Telefonica.Portal.Rows
+    - contextPath: TC2Tech.Portal.Rows
       description: 'Command execution results.'
   - name: tc2tech-portal-rows-create
     description: 'Create new rows in a portal list.'
@@ -175,7 +175,7 @@ script:
       required: true
       description: 'Data to create the rows.'
     outputs:
-    - contextPath: Telefonica.Portal.Rows
+    - contextPath: TC2Tech.Portal.Rows
       description: 'Command execution results.'
   - name: tc2tech-portal-rows-update
     description: 'Update portal list rows.'
@@ -199,7 +199,7 @@ script:
       required: true
       description: 'Data to update the rows.'
     outputs:
-    - contextPath: Telefonica.Portal.Rows
+    - contextPath: TC2Tech.Portal.Rows
       description: 'Command execution results.'
   - name: tc2tech-portal-rows-delete
     description: 'Delete rows matching the search filters in a specific portal list.'
@@ -220,7 +220,7 @@ script:
       required: false
       description: 'See the corresponding section in the Cybersecurity Portal.'
     outputs:
-    - contextPath: Telefonica.Portal.Rows
+    - contextPath: TC2Tech.Portal.Rows
       description: 'Command execution results.'
   - name: tc2tech-portal-versions-get
     description: 'Get all versions matching the search parameters.'
@@ -253,7 +253,7 @@ script:
       required: false
       description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
     outputs:
-    - contextPath: Telefonica.Portal.Versions
+    - contextPath: TC2Tech.Portal.Versions
       description: 'Command execution results.'
   - name: tc2tech-portal-tags-get
     description: 'Get all tags matching the search parameters.'
@@ -286,7 +286,7 @@ script:
       required: false
       description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
     outputs:
-    - contextPath: Telefonica.Portal.Tags
+    - contextPath: TC2Tech.Portal.Tags
       description: 'Command execution results.'
   - name: tc2tech-portal-tags-update
     description: 'Update tag definitions.'
@@ -304,7 +304,7 @@ script:
       required: true
       description: 'Tag definitions.'
     outputs:
-    - contextPath: Telefonica.Portal.Tags
+    - contextPath: TC2Tech.Portal.Tags
       description: 'Command execution results.'
   - name: tc2tech-portal-catalogs-get
     description: 'Get all rows in a catalog matching the search parameters.'
@@ -337,7 +337,7 @@ script:
       required: false
       description: 'See https://cybersecurity-qaenv-telefonica.e-paths.com/api/lists/v1/swagger/index.html'
     outputs:
-    - contextPath: Telefonica.Portal.Catalogs
+    - contextPath: TC2Tech.Portal.Catalogs
       description: 'Command execution results.'
   isfetch: false
   runonce: false

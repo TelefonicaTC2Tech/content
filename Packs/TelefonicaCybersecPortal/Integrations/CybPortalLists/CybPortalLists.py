@@ -267,7 +267,7 @@ class Integration:
 
         if isinstance(results, dict):
             results = CommandResults(
-                outputs_prefix=f"Telefonica.Portal.{module.name.capitalize()}",
+                outputs_prefix=f"TC2Tech.Portal.{module.name.capitalize()}",
                 outputs=results,
             )
 
