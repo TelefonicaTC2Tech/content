@@ -5,10 +5,10 @@ starttaskid: "0"
 tasks:
   "0":
     id: "0"
-    taskid: 7bcdf18d-d6bf-4d0f-8af7-22a8356ae803
+    taskid: 4bdeadf1-0ee5-4f40-89b8-91c0a4590dc6
     type: start
     task:
-      id: 7bcdf18d-d6bf-4d0f-8af7-22a8356ae803
+      id: 4bdeadf1-0ee5-4f40-89b8-91c0a4590dc6
       version: -1
       name: ""
       iscommand: false
@@ -22,7 +22,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 50,
+          "x": 265,
           "y": 50
         }
       }
@@ -35,10 +35,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "1":
     id: "1"
-    taskid: 9bb7a920-767f-4c6f-8d0b-513e56c889b6
+    taskid: 222d349c-1bcd-41d1-806b-2d8663a9fb81
     type: regular
     task:
-      id: 9bb7a920-767f-4c6f-8d0b-513e56c889b6
+      id: 222d349c-1bcd-41d1-806b-2d8663a9fb81
       version: -1
       name: Clear context
       description: |-
@@ -53,7 +53,8 @@ tasks:
       brand: ""
     nexttasks:
       '#none#':
-      - "2"
+      - "3"
+      - "5"
     scriptarguments:
       all:
         simple: "yes"
@@ -62,7 +63,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 50,
+          "x": 265,
           "y": 195
         }
       }
@@ -75,16 +76,53 @@ tasks:
     isautoswitchedtoquietmode: false
   "2":
     id: "2"
-    taskid: b095f31e-fd19-4c9e-8f26-b276b851b181
+    taskid: f5cf02b8-71c2-46f5-8ebc-2daee3718931
     type: title
     task:
-      id: b095f31e-fd19-4c9e-8f26-b276b851b181
+      id: f5cf02b8-71c2-46f5-8ebc-2daee3718931
       version: -1
       name: Playbook Finished
       type: title
       iscommand: false
       brand: ""
       description: ''
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 265,
+          "y": 720
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "3":
+    id: "3"
+    taskid: e1debdd3-4f19-4227-8d14-ac2e484dcc61
+    type: regular
+    task:
+      id: e1debdd3-4f19-4227-8d14-ac2e484dcc61
+      version: -1
+      name: Assign client
+      description: Assigns a client from the service client list, using the incident source instance.
+      scriptName: TC2TechCEAssignClient
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "4"
+    scriptarguments:
+      clients:
+        complex:
+          root: lists
+          accessor: clean_email_clients
     separatecontext: false
     continueonerrortype: ""
     view: |-
@@ -101,13 +139,134 @@ tasks:
     quietmode: 0
     isoversize: false
     isautoswitchedtoquietmode: false
+  "4":
+    id: "4"
+    taskid: b6750516-4a1a-4863-87ea-478beebf5b86
+    type: regular
+    task:
+      id: b6750516-4a1a-4863-87ea-478beebf5b86
+      version: -1
+      name: Transcode client
+      description: Get all rows matching the search parameters.
+      script: CybPortalLists|||tc2tech-portal-rows-get
+      type: regular
+      iscommand: true
+      brand: CybPortalLists
+    nexttasks:
+      '#none#':
+      - "2"
+    scriptarguments:
+      external_id:
+        simple: trascoding
+      filter:
+        simple: "{\n\t\"and\": [\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"tenantID\",\n\t\t\t\t\"value\": ${incident.tc2techtenantid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"socID\",\n\t\t\t\t\"value\": ${incident.tc2techsocid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"clientID\",\n\t\t\t\t\"value\": ${incident.tc2techclientid}\n\t\t\t}\n\t\t}\n\t]\n}"
+      limit:
+        simple: "1"
+      tenant_id:
+        simple: "1"
+      using:
+        simple: CybPortalLists_PRO
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "5":
+    id: "5"
+    taskid: 744714a2-c211-41ba-8a63-8b0d53e5363d
+    type: regular
+    task:
+      id: 744714a2-c211-41ba-8a63-8b0d53e5363d
+      version: -1
+      name: Generate UUID
+      description: Generates a random UUID (UUID 4).
+      scriptName: GenerateRandomUUID
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "6"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 370
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "6":
+    id: "6"
+    taskid: cda9a259-d33f-42e8-8614-e2011004d77e
+    type: regular
+    task:
+      id: cda9a259-d33f-42e8-8614-e2011004d77e
+      version: -1
+      name: Assign service IDs
+      description: commands.local.cmd.set.incident
+      script: Builtin|||setIncident
+      type: regular
+      iscommand: true
+      brand: Builtin
+    nexttasks:
+      '#none#':
+      - "2"
+    scriptarguments:
+      tc2techserviceincidentid:
+        complex:
+          root: GeneratedUUID
+      tc2techsourcesystemid:
+        complex:
+          root: lists
+          accessor: services
+          transformers:
+          - operator: jmespath
+            args:
+              expression:
+                value:
+                  simple: clean_email.source_system_id
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
 view: |-
   {
     "linkLabelsPosition": {},
     "paper": {
       "dimensions": {
-        "height": 385,
-        "width": 380,
+        "height": 735,
+        "width": 810,
         "x": 50,
         "y": 50
       }
@@ -115,7 +274,7 @@ view: |-
   }
 inputs: []
 outputs: []
-quiet: true
+quiet: false
 tests:
 - No tests (auto formatted)
 fromversion: 6.5.0
