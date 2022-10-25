@@ -1,0 +1,61 @@
+args:
+- name: operation
+  default: false
+  description: 'Case management operation.'
+  isArray: false
+  required: true
+  secret: false
+  auto: PREDEFINED
+  predefined:
+  - ATTACHMENT_ADD_PORTAL
+  - CANCEL
+  - CLOSE
+  - CREATE
+  - REACTIVATE
+  - REOPEN
+  - RESOLVE
+  - SUSPEND
+  - UPDATE
+- name: transcode
+  default: false
+  description: 'Client transcoding data.'
+  isArray: false
+  required: true
+  secret: false
+- name: type
+  default: false
+  description: 'Case type: either security or supervision.'
+  isArray: false
+  required: true
+  secret: false
+  auto: PREDEFINED
+  predefined:
+  - SECURITY
+  - SUPERVISION
+- name: queue
+  default: false
+  description: 'Service queue for messages coming from external systems.'
+  isArray: false
+  required: false
+  secret: false
+comment: 'Creates OCM context from incident, based on operation and client info.'
+commonfields:
+  id: TC2TechOCMContext
+  version: -1
+enabled: false
+name: TC2TechOCMContext
+outputs:
+- contextPath: TC2Tech.OCM.Context
+  description: 'Context data model accepted by OCM'
+script: '-'
+system: false
+tags:
+- tc2tech
+- ocm
+timeout: '0'
+type: python
+subtype: python3
+dockerimage: demisto/python3:3.10.8.36650
+fromversion: 6.5.0
+tests:
+- No tests (auto formatted)
