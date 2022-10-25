@@ -53,6 +53,9 @@ def main(**kwargs):
             "transcode": transcode,
         }
 
+        if "queue" in kwargs:
+            context["clientQueue"] = kwargs["queue"]
+
         alert_key = None
         if search_class == SearchClass.SECURITY:
             alert_key = "securityAlerts"
