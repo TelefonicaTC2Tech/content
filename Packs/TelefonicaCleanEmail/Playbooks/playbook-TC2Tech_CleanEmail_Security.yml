@@ -5,15 +5,15 @@ starttaskid: "0"
 tasks:
   "0":
     id: "0"
-    taskid: 4bdeadf1-0ee5-4f40-89b8-91c0a4590dc6
+    taskid: 87370a21-bd63-4ffb-88a7-336f6e0d00e9
     type: start
     task:
-      id: 4bdeadf1-0ee5-4f40-89b8-91c0a4590dc6
+      id: 87370a21-bd63-4ffb-88a7-336f6e0d00e9
       version: -1
       name: ""
+      description: Playbook entry point.
       iscommand: false
       brand: ""
-      description: ''
     nexttasks:
       '#none#':
       - "1"
@@ -35,10 +35,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "1":
     id: "1"
-    taskid: 222d349c-1bcd-41d1-806b-2d8663a9fb81
+    taskid: 190be3ce-8540-47b1-8a55-bba5401b164d
     type: regular
     task:
-      id: 222d349c-1bcd-41d1-806b-2d8663a9fb81
+      id: 190be3ce-8540-47b1-8a55-bba5401b164d
       version: -1
       name: Clear context
       description: |-
@@ -76,23 +76,23 @@ tasks:
     isautoswitchedtoquietmode: false
   "2":
     id: "2"
-    taskid: f5cf02b8-71c2-46f5-8ebc-2daee3718931
+    taskid: 4bf6f588-6e2e-4b9a-83b1-0c4e67165448
     type: title
     task:
-      id: f5cf02b8-71c2-46f5-8ebc-2daee3718931
+      id: 4bf6f588-6e2e-4b9a-83b1-0c4e67165448
       version: -1
       name: Playbook Finished
+      description: Playbook exit.
       type: title
       iscommand: false
       brand: ""
-      description: ''
     separatecontext: false
     continueonerrortype: ""
     view: |-
       {
         "position": {
           "x": 265,
-          "y": 720
+          "y": 1945
         }
       }
     note: false
@@ -104,13 +104,14 @@ tasks:
     isautoswitchedtoquietmode: false
   "3":
     id: "3"
-    taskid: e1debdd3-4f19-4227-8d14-ac2e484dcc61
+    taskid: aaa5e88c-72a1-48f1-810d-4002ad840ef8
     type: regular
     task:
-      id: e1debdd3-4f19-4227-8d14-ac2e484dcc61
+      id: aaa5e88c-72a1-48f1-810d-4002ad840ef8
       version: -1
       name: Assign client
-      description: Assigns a client from the service client list, using the incident source instance.
+      description: Assigns a client from the service client list, using the incident
+        source instance.
       scriptName: TC2TechCEAssignClient
       type: regular
       iscommand: false
@@ -141,10 +142,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "4":
     id: "4"
-    taskid: b6750516-4a1a-4863-87ea-478beebf5b86
+    taskid: bbef1203-2f36-4ae2-8f6d-992f31eb7f5a
     type: regular
     task:
-      id: b6750516-4a1a-4863-87ea-478beebf5b86
+      id: bbef1203-2f36-4ae2-8f6d-992f31eb7f5a
       version: -1
       name: Transcode client
       description: Get all rows matching the search parameters.
@@ -154,12 +155,15 @@ tasks:
       brand: CybPortalLists
     nexttasks:
       '#none#':
-      - "2"
+      - "7"
     scriptarguments:
       external_id:
         simple: trascoding
       filter:
-        simple: "{\n\t\"and\": [\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"tenantID\",\n\t\t\t\t\"value\": ${incident.tc2techtenantid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"socID\",\n\t\t\t\t\"value\": ${incident.tc2techsocid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"clientID\",\n\t\t\t\t\"value\": ${incident.tc2techclientid}\n\t\t\t}\n\t\t}\n\t]\n}"
+        simple: "{\n\t\"and\": [\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\": \"tenantID\",\n\t\t\t\t\"value\":
+          ${incident.tc2techtenantid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\": {\n\t\t\t\t\"attribute\":
+          \"socID\",\n\t\t\t\t\"value\": ${incident.tc2techsocid}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"eq\":
+          {\n\t\t\t\t\"attribute\": \"clientID\",\n\t\t\t\t\"value\": ${incident.tc2techclientid}\n\t\t\t}\n\t\t}\n\t]\n}"
       limit:
         simple: "1"
       tenant_id:
@@ -184,10 +188,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "5":
     id: "5"
-    taskid: 744714a2-c211-41ba-8a63-8b0d53e5363d
+    taskid: e1427d68-3272-46e5-83cd-9fa449dbb58c
     type: regular
     task:
-      id: 744714a2-c211-41ba-8a63-8b0d53e5363d
+      id: e1427d68-3272-46e5-83cd-9fa449dbb58c
       version: -1
       name: Generate UUID
       description: Generates a random UUID (UUID 4).
@@ -216,10 +220,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "6":
     id: "6"
-    taskid: cda9a259-d33f-42e8-8614-e2011004d77e
+    taskid: 6400d2d5-f02b-406f-8449-df286dea2896
     type: regular
     task:
-      id: cda9a259-d33f-42e8-8614-e2011004d77e
+      id: 6400d2d5-f02b-406f-8449-df286dea2896
       version: -1
       name: Assign service IDs
       description: commands.local.cmd.set.incident
@@ -229,7 +233,7 @@ tasks:
       brand: Builtin
     nexttasks:
       '#none#':
-      - "2"
+      - "7"
     scriptarguments:
       tc2techserviceincidentid:
         complex:
@@ -260,6 +264,327 @@ tasks:
     quietmode: 0
     isoversize: false
     isautoswitchedtoquietmode: false
+  "7":
+    id: "7"
+    taskid: 97f78567-ffa2-4894-880d-8113a782d77d
+    type: regular
+    task:
+      id: 97f78567-ffa2-4894-880d-8113a782d77d
+      version: -1
+      name: Adapt to OCM
+      description: Adapt the Proofpoint event information to the Case Management data
+        model.
+      scriptName: TC2TechCEModelETL
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "8"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 265,
+          "y": 720
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "8":
+    id: "8"
+    taskid: 23793208-f5ae-410d-8b43-8100e871c89e
+    type: condition
+    task:
+      id: 23793208-f5ae-410d-8b43-8100e871c89e
+      version: -1
+      name: Event type?
+      description: Decides the flow according to the event type.
+      type: condition
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#default#':
+      - "2"
+      Click:
+      - "9"
+      Message:
+      - "10"
+    separatecontext: false
+    conditions:
+    - label: Message
+      condition:
+      - - operator: isEqualString
+          left:
+            value:
+              simple: incident.type
+            iscontext: true
+          right:
+            value:
+              simple: CleanEmail Message
+    - label: Click
+      condition:
+      - - operator: isEqualString
+          left:
+            value:
+              simple: incident.type
+            iscontext: true
+          right:
+            value:
+              simple: CleanEmail Click
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 265,
+          "y": 895
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "9":
+    id: "9"
+    taskid: 9943fe04-af90-408a-8965-b07a62ca5c8c
+    type: regular
+    task:
+      id: 9943fe04-af90-408a-8965-b07a62ca5c8c
+      version: -1
+      name: Wait for related message
+      description: Sleep for X seconds
+      scriptName: Sleep
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "2"
+    scriptarguments:
+      seconds:
+        simple: "60"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1770
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "10":
+    id: "10"
+    taskid: 50182222-fe3c-4f90-8e98-9713a3d70ee7
+    type: regular
+    task:
+      id: 50182222-fe3c-4f90-8e98-9713a3d70ee7
+      version: -1
+      name: Prepare OCM context
+      description: Creates OCM context from incident, based on operation and client
+        info.
+      scriptName: TC2TechOCMContext
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "11"
+    scriptarguments:
+      operation:
+        simple: CREATE
+      transcode:
+        complex:
+          root: TC2Tech.Portal
+          accessor: Rows
+          transformers:
+          - operator: getField
+            args:
+              field:
+                value:
+                  simple: items
+      type:
+        simple: SECURITY
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 1070
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "11":
+    id: "11"
+    taskid: f899af9f-bca7-4ec7-8414-d52ab0ac3f26
+    type: regular
+    task:
+      id: f899af9f-bca7-4ec7-8414-d52ab0ac3f26
+      version: -1
+      name: Create case
+      description: Delivers a message to the specified queue.
+      script: AWS - SQS_senderv2|||aws-sqs-send-message
+      type: regular
+      iscommand: true
+      brand: AWS - SQS_senderv2
+    nexttasks:
+      '#none#':
+      - "13"
+    scriptarguments:
+      messageBody:
+        complex:
+          root: TC2Tech.OCM
+          accessor: Context
+          transformers:
+          - operator: jmespath
+            args:
+              expression:
+                value:
+                  simple: '{context: @}'
+          - operator: Stringify
+      messageGroupId:
+        simple: "1"
+      queueUrl:
+        simple: https://sqs.eu-west-1.amazonaws.com/871432524518/OCM-Ticketing-Spring-pro.fifo
+      using:
+        simple: AWS_SQS_senderv2_CleanEmail_PRO
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 1245
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "12":
+    id: "12"
+    taskid: f39e7e9d-45d1-4e2a-8dbf-85e00c52abd3
+    type: playbook
+    task:
+      id: f39e7e9d-45d1-4e2a-8dbf-85e00c52abd3
+      version: -1
+      name: CE-OCM-Security-loop
+      description: Process case updates.
+      playbookName: CE-OCM-Security-loop
+      type: playbook
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "14"
+    separatecontext: true
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 1595
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "13":
+    id: "13"
+    taskid: 9b82280c-34f5-4b1a-88ca-6540620a3c5d
+    type: regular
+    task:
+      id: 9b82280c-34f5-4b1a-88ca-6540620a3c5d
+      version: -1
+      name: Set wait for clicks
+      description: Sets/unsets the wait flag for the current incident.
+      scriptName: TC2TechOCMSetWait
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "12"
+    scriptarguments:
+      wait:
+        simple: "yes"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 1420
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "14":
+    id: "14"
+    taskid: 9f42a930-0971-4bbb-853e-0a9d33440fcf
+    type: regular
+    task:
+      id: 9f42a930-0971-4bbb-853e-0a9d33440fcf
+      version: -1
+      name: Close incident
+      description: commands.local.cmd.close.inv
+      script: Builtin|||closeInvestigation
+      type: regular
+      iscommand: true
+      brand: Builtin
+    nexttasks:
+      '#none#':
+      - "2"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 1770
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
 view: |-
   {
     "linkLabelsPosition": {},
@@ -278,4 +603,4 @@ quiet: false
 tests:
 - No tests (auto formatted)
 fromversion: 6.5.0
-description: Main case management playbook for the CleanEmail service
+description: Main case management playbook for the CleanEmail service.

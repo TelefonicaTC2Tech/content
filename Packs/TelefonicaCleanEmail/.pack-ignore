@@ -1,2 +1,8 @@
 [file:playbook-TC2Tech_CleanEmail_Security.yml]
-ignore=PB105,PB106,RM104
+ignore=PB105,PB106,PB107,RM104
+
+[file:playbook-TC2Tech_CleanEmail_Security_loop.yml]
+ignore=PB105,PB106,PB107,RM104
+
+[file:incidentfield-TelefonicaCleanEmail_MessageId.json]
+ignore=IF115

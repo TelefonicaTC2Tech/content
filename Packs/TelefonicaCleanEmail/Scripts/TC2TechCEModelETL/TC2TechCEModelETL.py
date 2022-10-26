@@ -243,7 +243,13 @@ def main():
     try:
         inc = demisto.incident()
         event = Event(inc)
-        execute_command("setIncident", {"tc2techmodel": json.dumps(event.model)})
+        execute_command(
+            "setIncident",
+            {
+                "tc2techmodel": json.dumps(event.model),
+                "tc2techcemessageid": event.message_id,
+            },
+        )
 
     except Exception:
         return_error("\n".join((MODULE_NAME, "Error:", traceback.format_exc())))
