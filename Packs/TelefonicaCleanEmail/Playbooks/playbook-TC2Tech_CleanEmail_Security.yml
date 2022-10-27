@@ -5,10 +5,10 @@ starttaskid: "0"
 tasks:
   "0":
     id: "0"
-    taskid: d13b4736-79da-4922-8f7e-3704f53fe9b6
+    taskid: 33291c6c-8ff6-4e8d-8bd6-e8fe985e85d7
     type: start
     task:
-      id: d13b4736-79da-4922-8f7e-3704f53fe9b6
+      id: 33291c6c-8ff6-4e8d-8bd6-e8fe985e85d7
       version: -1
       name: ""
       description: Playbook entry point.
@@ -35,10 +35,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "1":
     id: "1"
-    taskid: 94e8af16-4c2c-48cc-8058-58292dc67fdd
+    taskid: 346cf384-29b3-4960-8042-d92d32c67ad2
     type: regular
     task:
-      id: 94e8af16-4c2c-48cc-8058-58292dc67fdd
+      id: 346cf384-29b3-4960-8042-d92d32c67ad2
       version: -1
       name: Clear context
       description: |-
@@ -76,10 +76,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "2":
     id: "2"
-    taskid: 33b06399-0f99-409b-8add-2aac29ca6c18
+    taskid: b6ad88ac-d092-4465-8808-a36df4b29ee4
     type: title
     task:
-      id: 33b06399-0f99-409b-8add-2aac29ca6c18
+      id: b6ad88ac-d092-4465-8808-a36df4b29ee4
       version: -1
       name: Playbook Finished
       description: Playbook exit.
@@ -91,8 +91,8 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 437.5,
-          "y": 2105
+          "x": 450,
+          "y": 2410
         }
       }
     note: false
@@ -104,10 +104,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "3":
     id: "3"
-    taskid: 438d58f4-34d5-4ae1-8c98-5ffb4b0ec5d3
+    taskid: 104386ea-dd5e-45fd-8454-ad32a2fc0e09
     type: regular
     task:
-      id: 438d58f4-34d5-4ae1-8c98-5ffb4b0ec5d3
+      id: 104386ea-dd5e-45fd-8454-ad32a2fc0e09
       version: -1
       name: Assign client
       description: Assigns a client from the service client list, using the incident
@@ -142,10 +142,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "4":
     id: "4"
-    taskid: 8b45089b-5be5-4686-839c-8e83b42f7c44
+    taskid: 260c67e8-509f-4d05-8336-e1109dc34bc7
     type: regular
     task:
-      id: 8b45089b-5be5-4686-839c-8e83b42f7c44
+      id: 260c67e8-509f-4d05-8336-e1109dc34bc7
       version: -1
       name: Transcode client
       description: Get all rows matching the search parameters.
@@ -188,10 +188,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "5":
     id: "5"
-    taskid: c48dbec0-08e2-45ea-8196-e97dc93d4fc7
+    taskid: 7967baa7-e54d-4833-8454-da4ebbb66719
     type: regular
     task:
-      id: c48dbec0-08e2-45ea-8196-e97dc93d4fc7
+      id: 7967baa7-e54d-4833-8454-da4ebbb66719
       version: -1
       name: Generate UUID
       description: Generates a random UUID (UUID 4).
@@ -220,10 +220,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "6":
     id: "6"
-    taskid: d5cb76f6-0327-45ae-8a52-9cea9db94f98
+    taskid: b3681d1c-1753-4bc9-872a-9ace659c447d
     type: regular
     task:
-      id: d5cb76f6-0327-45ae-8a52-9cea9db94f98
+      id: b3681d1c-1753-4bc9-872a-9ace659c447d
       version: -1
       name: Assign service IDs
       description: commands.local.cmd.set.incident
@@ -266,10 +266,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "7":
     id: "7"
-    taskid: 29a92e2f-17b1-401c-8643-e5967085015a
+    taskid: e2e3b985-6049-4372-89e5-f30703bd757b
     type: regular
     task:
-      id: 29a92e2f-17b1-401c-8643-e5967085015a
+      id: e2e3b985-6049-4372-89e5-f30703bd757b
       version: -1
       name: Adapt to OCM
       description: Adapt the Proofpoint event information to the Case Management data
@@ -299,10 +299,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "8":
     id: "8"
-    taskid: fd4786e2-011e-4bee-8955-3210b0855d67
+    taskid: d92b927f-9963-459b-81e0-dc007a3cf99e
     type: condition
     task:
-      id: fd4786e2-011e-4bee-8955-3210b0855d67
+      id: d92b927f-9963-459b-81e0-dc007a3cf99e
       version: -1
       name: Event type?
       description: Decides the flow according to the event type.
@@ -355,10 +355,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "10":
     id: "10"
-    taskid: 012c8045-866f-48d1-8284-4f649a712c20
+    taskid: 19f8564a-c267-4e82-8f21-644332b9eefa
     type: regular
     task:
-      id: 012c8045-866f-48d1-8284-4f649a712c20
+      id: 19f8564a-c267-4e82-8f21-644332b9eefa
       version: -1
       name: Prepare OCM context
       description: Creates OCM context from incident, based on operation and client
@@ -403,10 +403,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "11":
     id: "11"
-    taskid: 23dcd579-99c9-4427-88c5-b0e2a620dd35
+    taskid: bffeb231-8519-4f8f-8d63-659b052a7e53
     type: regular
     task:
-      id: 23dcd579-99c9-4427-88c5-b0e2a620dd35
+      id: bffeb231-8519-4f8f-8d63-659b052a7e53
       version: -1
       name: Create case
       description: Delivers a message to the specified queue.
@@ -453,10 +453,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "12":
     id: "12"
-    taskid: 9cff144d-f4ad-47f0-8ecc-47af007d2612
+    taskid: 151b3f04-26ca-479c-847c-e43396dd1b2e
     type: playbook
     task:
-      id: 9cff144d-f4ad-47f0-8ecc-47af007d2612
+      id: 151b3f04-26ca-479c-847c-e43396dd1b2e
       version: -1
       name: CE-OCM-Security-loop
       description: Process case updates.
@@ -485,10 +485,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "13":
     id: "13"
-    taskid: 58a6a61a-f652-445f-8b65-83d796d1abdd
+    taskid: 5f4a7526-39f6-4d26-8b30-61d8bc5900a8
     type: regular
     task:
-      id: 58a6a61a-f652-445f-8b65-83d796d1abdd
+      id: 5f4a7526-39f6-4d26-8b30-61d8bc5900a8
       version: -1
       name: Set wait for clicks
       description: Sets/unsets the wait flag for the current incident.
@@ -520,10 +520,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "14":
     id: "14"
-    taskid: 5f14c31e-7e0d-4f09-8e53-2c14eb3038ec
+    taskid: 190da947-4636-4609-854c-3270346de101
     type: regular
     task:
-      id: 5f14c31e-7e0d-4f09-8e53-2c14eb3038ec
+      id: 190da947-4636-4609-854c-3270346de101
       version: -1
       name: Close incident
       description: commands.local.cmd.close.inv
@@ -552,10 +552,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "16":
     id: "16"
-    taskid: d331bee4-08ee-4ead-8f82-cb232ec564e9
+    taskid: 933bdb24-1d70-4157-8d65-4f1cf96d23f3
     type: regular
     task:
-      id: d331bee4-08ee-4ead-8f82-cb232ec564e9
+      id: 933bdb24-1d70-4157-8d65-4f1cf96d23f3
       version: -1
       name: Get related active case
       description: |-
@@ -592,10 +592,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "17":
     id: "17"
-    taskid: d943f083-a191-4254-86a4-f32e7bdace02
+    taskid: e7007e86-ff4f-46d5-8691-cc343fa4c1cd
     type: condition
     task:
-      id: d943f083-a191-4254-86a4-f32e7bdace02
+      id: e7007e86-ff4f-46d5-8691-cc343fa4c1cd
       version: -1
       name: Has the active case been found?
       description: Check whether the case has been closed or not.
@@ -606,7 +606,7 @@ tasks:
       '#default#':
       - "19"
       "yes":
-      - "2"
+      - "20"
     separatecontext: false
     conditions:
     - label: "yes"
@@ -639,10 +639,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "18":
     id: "18"
-    taskid: 723ab6b8-75b1-4781-82fb-1e6aa22c172f
+    taskid: c5a0abbb-bea5-433f-8fc7-5d91986591e8
     type: condition
     task:
-      id: 723ab6b8-75b1-4781-82fb-1e6aa22c172f
+      id: c5a0abbb-bea5-433f-8fc7-5d91986591e8
       version: -1
       name: Has been blocked?
       description: Check whether the click was blocked or not.
@@ -682,10 +682,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "19":
     id: "19"
-    taskid: 82ee11f1-2335-44c1-8a59-7f6990233a50
+    taskid: 472783b2-098b-4d30-893e-13f088c15228
     type: condition
     task:
-      id: 82ee11f1-2335-44c1-8a59-7f6990233a50
+      id: 472783b2-098b-4d30-893e-13f088c15228
       version: -1
       name: Wait for related active case
       description: Wait for the related case to be ready to accept updates.
@@ -699,8 +699,86 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 1030,
-          "y": 1790
+          "x": 1210,
+          "y": 1820
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "20":
+    id: "20"
+    taskid: b7f0717e-3e8c-4089-8825-74d02ab27990
+    type: regular
+    task:
+      id: b7f0717e-3e8c-4089-8825-74d02ab27990
+      version: -1
+      name: Link click to message
+      description: Add click to its associated message as an event within an alert.
+      scriptName: TC2TechCEAddClick
+      type: regular
+      iscommand: false
+      brand: ""
+    nexttasks:
+      '#none#':
+      - "21"
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 680,
+          "y": 1860
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+    isoversize: false
+    isautoswitchedtoquietmode: false
+  "21":
+    id: "21"
+    taskid: d583c0d6-fcb8-4e7e-8db7-c2d195c0ec01
+    type: regular
+    task:
+      id: d583c0d6-fcb8-4e7e-8db7-c2d195c0ec01
+      version: -1
+      name: Trigger case update
+      description: commands.local.cmd.task.complete
+      script: Builtin|||taskComplete
+      type: regular
+      iscommand: true
+      brand: Builtin
+    scriptarguments:
+      id:
+        simple: WaitForClicks
+      incidentId:
+        complex:
+          root: foundIncidents
+          transformers:
+          - operator: FirstArrayElement
+          - operator: getField
+            args:
+              field:
+                value:
+                  simple: id
+      input:
+        simple: Update
+      parentPlaybookID:
+        simple: CE-OCM-Security-loop
+    separatecontext: false
+    continueonerrortype: ""
+    view: |-
+      {
+        "position": {
+          "x": 880,
+          "y": 2060
         }
       }
     note: false
