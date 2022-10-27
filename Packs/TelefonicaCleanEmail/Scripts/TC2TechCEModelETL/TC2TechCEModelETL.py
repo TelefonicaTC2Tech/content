@@ -134,8 +134,10 @@ def alert(ce_event):
     timestamp = Utils.iso_to_millis(raw.get("messageTime"))
     if ce_event.blocked:
         name = "Message blocked"
+        signature = "CE:MESSAGE:BLOCKED"
     else:
         name = "Message delivered"
+        signature = "CE:MESSAGE:DELIVERED"
 
     data = {
         "alertId": ce_event.service_incident_id,
@@ -146,7 +148,7 @@ def alert(ce_event):
         "name": name,
         "serviceId": "9",
         "severity": level,
-        "signature": "CE:MESSAGE",
+        "signature": signature,
         "sourceAlertId": message_id,
         "sourceId": message_id,
         "tenantId": ce_event.tenant_id,
