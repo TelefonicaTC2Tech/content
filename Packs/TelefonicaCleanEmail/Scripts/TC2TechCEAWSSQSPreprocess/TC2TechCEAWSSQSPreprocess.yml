@@ -1,0 +1,20 @@
+comment: 'Deals with managing Clean Email cases through their operations.'
+commonfields:
+  id: TC2TechCEAWSSQSPreprocess
+  version: -1
+enabled: false
+name: TC2TechCEAWSSQSPreprocess
+script: '-'
+system: false
+tags:
+- tc2tech
+- ocm
+- cleanemail
+- pre-processing
+timeout: '0'
+type: python
+subtype: python3
+dockerimage: demisto/python3:3.10.8.36650
+fromversion: 6.5.0
+tests:
+- No tests (auto formatted)
