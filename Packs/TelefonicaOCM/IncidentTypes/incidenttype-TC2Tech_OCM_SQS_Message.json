@@ -1,7 +1,7 @@
 {
     "id": "AWS SQS Message",
     "version": -1,
-    "playbookId": "CE-OCM-Security",
+    "playbookId": "OCM-SQS-Message",
     "locked": false,
     "name": "AWS SQS Message",
     "prevName": "AWS SQS Message",

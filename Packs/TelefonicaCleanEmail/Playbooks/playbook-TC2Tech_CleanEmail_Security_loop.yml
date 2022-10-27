@@ -5,10 +5,10 @@ starttaskid: "0"
 tasks:
   "0":
     id: "0"
-    taskid: 3582ed9a-07dd-484b-87e9-21a6d3f27495
+    taskid: 72b7b633-d078-4934-80ca-de3909e1a86b
     type: start
     task:
-      id: 3582ed9a-07dd-484b-87e9-21a6d3f27495
+      id: 72b7b633-d078-4934-80ca-de3909e1a86b
       version: -1
       name: ""
       description: Playbook entry point.
@@ -35,10 +35,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "1":
     id: "1"
-    taskid: daa438ab-69cf-4456-8b51-ff7739873356
+    taskid: 26e6a81f-0ab5-432b-864a-27c608c8ef03
     type: regular
     task:
-      id: daa438ab-69cf-4456-8b51-ff7739873356
+      id: 26e6a81f-0ab5-432b-864a-27c608c8ef03
       version: -1
       name: Clear context
       description: |-
@@ -77,10 +77,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "2":
     id: "2"
-    taskid: a45ce06c-b9d3-4ea1-8b69-07595ea07da0
+    taskid: 0b34e870-6379-41dc-8abe-9f12e02955f9
     type: title
     task:
-      id: a45ce06c-b9d3-4ea1-8b69-07595ea07da0
+      id: 0b34e870-6379-41dc-8abe-9f12e02955f9
       version: -1
       name: Playbook finished
       description: Playbook exit.
@@ -105,10 +105,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "3":
     id: "3"
-    taskid: 08b3066f-5487-44f3-89d6-956c3c843620
+    taskid: f8381eee-7c52-41b4-83a6-b187d1e690e8
     type: condition
     task:
-      id: 08b3066f-5487-44f3-89d6-956c3c843620
+      id: f8381eee-7c52-41b4-83a6-b187d1e690e8
       version: -1
       name: Wait for clicks
       description: Manual wait.
@@ -118,8 +118,6 @@ tasks:
       iscommand: false
       brand: ""
     nexttasks:
-      '#default#':
-      - "2"
       Close:
       - "4"
       Update:
@@ -142,10 +140,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "4":
     id: "4"
-    taskid: c7a462a3-22c7-4bc3-836e-f4e5f4f14acb
+    taskid: c8879cb8-6e93-4e47-8d19-659967c026b4
     type: regular
     task:
-      id: c7a462a3-22c7-4bc3-836e-f4e5f4f14acb
+      id: c8879cb8-6e93-4e47-8d19-659967c026b4
       version: -1
       name: Break loop
       description: Sets/unsets the wait flag for the current incident.
@@ -177,10 +175,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "5":
     id: "5"
-    taskid: 00947444-7144-4e25-8519-50c8aba1559d
+    taskid: 9d5c6141-5472-437b-817a-66c1ddce0882
     type: regular
     task:
-      id: 00947444-7144-4e25-8519-50c8aba1559d
+      id: 9d5c6141-5472-437b-817a-66c1ddce0882
       version: -1
       name: Prepare OCM context
       description: Creates OCM context from incident, based on operation and client
@@ -195,6 +193,16 @@ tasks:
     scriptarguments:
       operation:
         simple: UPDATE
+      queue:
+        complex:
+          root: lists
+          accessor: services
+          transformers:
+          - operator: jmespath
+            args:
+              expression:
+                value:
+                  simple: clean_email.queue
       transcode:
         complex:
           root: TC2Tech.Portal
@@ -225,10 +233,10 @@ tasks:
     isautoswitchedtoquietmode: false
   "6":
     id: "6"
-    taskid: 40ef31b9-f68c-4bcc-8303-9c9378281087
+    taskid: 9d1607f9-3783-4f05-8527-70167754f82b
     type: regular
     task:
-      id: 40ef31b9-f68c-4bcc-8303-9c9378281087
+      id: 9d1607f9-3783-4f05-8527-70167754f82b
       version: -1
       name: Update case
       description: Delivers a message to the specified queue.
@@ -254,7 +262,15 @@ tasks:
       messageGroupId:
         simple: "1"
       queueUrl:
-        simple: https://sqs.eu-west-1.amazonaws.com/871432524518/OCM-Ticketing-Spring-pro.fifo
+        complex:
+          root: lists
+          accessor: services
+          transformers:
+          - operator: jmespath
+            args:
+              expression:
+                value:
+                  simple: ocm.queue
       using:
         simple: AWS_SQS_senderv2_CleanEmail_PRO
     separatecontext: false
@@ -278,7 +294,7 @@ view: |-
     "linkLabelsPosition": {},
     "paper": {
       "dimensions": {
-        "height": 735,
+        "height": 910,
         "width": 810,
         "x": 50,
         "y": 50

@@ -17,7 +17,8 @@ def main():
                         (
                             'type:"CleanEmail Click"',
                             f"tc2techcemessageid:{message_id}",
-                            "tc2techceblocked:False" "-status:2",
+                            "tc2techceblocked:false",
+                            "-status:2",
                         )
                     )
                 },
