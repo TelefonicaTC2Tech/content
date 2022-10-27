@@ -248,6 +248,7 @@ def main():
             {
                 "tc2techmodel": json.dumps(event.model),
                 "tc2techcemessageid": event.message_id,
+                "tc2techceblocked": event.blocked,
             },
         )
 

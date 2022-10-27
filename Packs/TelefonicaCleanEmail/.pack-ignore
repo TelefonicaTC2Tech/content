@@ -6,3 +6,6 @@ ignore=PB105,PB106,PB107,RM104
 
 [file:incidentfield-TelefonicaCleanEmail_MessageId.json]
 ignore=IF115
+
+[file:incidentfield-TelefonicaCleanEmail_Blocked.json]
+ignore=IF115
