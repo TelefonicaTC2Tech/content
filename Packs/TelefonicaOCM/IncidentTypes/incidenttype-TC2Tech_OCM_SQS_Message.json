@@ -1,0 +1,22 @@
+{
+    "id": "AWS SQS Message",
+    "version": -1,
+    "playbookId": "CE-OCM-Security",
+    "locked": false,
+    "name": "AWS SQS Message",
+    "prevName": "AWS SQS Message",
+    "color": "#152D45",
+    "hours": 0,
+    "days": 0,
+    "weeks": 0,
+    "hoursR": 0,
+    "daysR": 0,
+    "weeksR": 0,
+    "system": false,
+    "readonly": false,
+    "default": false,
+    "autorun": true,
+    "disabled": false,
+    "reputationCalc": 1,
+    "fromVersion": "6.5.0"
+}
