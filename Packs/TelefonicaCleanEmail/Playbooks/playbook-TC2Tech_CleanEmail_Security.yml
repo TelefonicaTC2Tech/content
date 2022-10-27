@@ -633,6 +633,7 @@ tasks:
       id: cd581685-077b-4198-8920-e9ec6681ad21
       version: -1
       name: Is the case active?
+      description: Check whether the case has been closed or not.
       type: condition
       iscommand: false
       brand: ""
