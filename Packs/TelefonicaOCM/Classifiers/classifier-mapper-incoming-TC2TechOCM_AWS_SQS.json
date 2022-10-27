@@ -1,0 +1,113 @@
+{
+    "description": "Mapper for incoming AWS SQS messages.",
+    "feed": false,
+    "id": "TC2Tech AWS SQS Mapper",
+    "mapping": {
+        "dbot_classification_incident_type_all": {
+            "dontMapEventToLabels": true,
+            "internalMapping": {
+                "TC2Tech Raw": {
+                    "complex": {
+                        "filters": [],
+                        "root": ".",
+                        "transformers": []
+                    }
+                },
+                "TC2Tech Operation": {
+                    "complex": {
+                        "filters": [],
+                        "root": "Body",
+                        "transformers": [
+                            {
+								"operator": "ParseJSON"
+							},
+							{
+								"args": {
+									"expression": {
+										"value": {
+											"simple": "context.operation"
+										}
+									}
+								},
+								"operator": "jmespath"
+							},
+							{
+								"operator": "toUpperCase"
+							}
+                        ]
+                    }
+                },
+                "TC2Tech Case Status": {
+					"complex": {
+						"filters": [],
+						"root": "Body",
+						"transformers": [
+							{
+								"operator": "ParseJSON"
+							},
+							{
+								"args": {
+									"expression": {
+										"value": {
+											"simple": "context.case.status"
+										}
+									}
+								},
+								"operator": "jmespath"
+							},
+							{
+								"operator": "toUpperCase"
+							}
+						]
+					}
+				},
+                "TC2Tech Case ID": {
+					"complex": {
+						"filters": [],
+						"root": "Body",
+						"transformers": [
+							{
+								"operator": "ParseJSON"
+							},
+							{
+								"args": {
+									"expression": {
+										"value": {
+											"simple": "context.caseId"
+										}
+									}
+								},
+								"operator": "jmespath"
+							}
+						]
+					}
+				},
+                "TC2Tech Service Incident ID": {
+					"complex": {
+						"filters": [],
+						"root": "Body",
+						"transformers": [
+							{
+								"operator": "ParseJSON"
+							},
+							{
+								"args": {
+									"expression": {
+										"value": {
+											"simple": "context.idIncCliente"
+										}
+									}
+								},
+								"operator": "jmespath"
+							}
+						]
+					}
+				}
+            }
+        }
+    },
+    "name": "TC2Tech AWS SQS Mapper",
+    "type": "mapping-incoming",
+    "version": -1,
+    "fromVersion": "6.5.0"
+}
