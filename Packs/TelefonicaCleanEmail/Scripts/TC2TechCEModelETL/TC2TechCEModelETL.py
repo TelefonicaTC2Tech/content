@@ -248,6 +248,7 @@ def main():
         execute_command(
             "setIncident",
             {
+                "severity": event.level.value,
                 "tc2techmodel": json.dumps(event.model),
                 "tc2techcemessageid": event.message_id,
                 "tc2techceblocked": event.blocked,
