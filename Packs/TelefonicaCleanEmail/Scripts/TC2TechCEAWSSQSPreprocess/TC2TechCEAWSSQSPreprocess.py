@@ -60,7 +60,14 @@ class QueueMessage:
             incidents = (
                 execute_command(
                     "getIncidents",
-                    {"query": f"tc2techserviceincidentid:{str(self.__siid)}"},
+                    {
+                        "query": " ".join(
+                            (
+                                f"tc2techserviceincidentid:{str(self.__siid)}",
+                                'type:"CleanEmail Message"',
+                            )
+                        )
+                    },
                 ).get("data", [])
                 or []
             )

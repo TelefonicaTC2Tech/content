@@ -10,18 +10,21 @@ def main():
         inc = demisto.incident()
         cf = inc["CustomFields"]
         message_id = cf.get("tc2techcemessageid")
-        clicks = execute_command(
-            "getIncidents",
-            {
-                "query": " ".join(
-                    (
-                        'type:"CleanEmail Click"',
-                        f"tc2techcemessageid:{message_id}",
-                        "-status:2",
-                    )
-                ),
-                "size": MAX_NUM_RELATED_INC,
-            },
+        clicks = (
+            execute_command(
+                "getIncidents",
+                {
+                    "query": " ".join(
+                        (
+                            'type:"CleanEmail Click"',
+                            f"tc2techcemessageid:{message_id}",
+                            "-status:2",
+                        )
+                    ),
+                    "size": MAX_NUM_RELATED_INC,
+                },
+            ).get("data", [])
+            or []
         )
 
         for clk in clicks:
