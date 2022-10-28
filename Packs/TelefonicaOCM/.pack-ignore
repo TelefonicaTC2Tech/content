@@ -1,2 +1,14 @@
 [file:playbook-TC2Tech_OCM_AWS_SQS.yml]
 ignore=RM104
+
+[file:incidentfield-TelefonicaOCM_CaseId.json]
+ignore=IF115
+
+[file:incidentfield-TelefonicaOCM_CaseStatus.json]
+ignore=IF115
+
+[file:incidentfield-TelefonicaOCM_ServiceIncidentId.json]
+ignore=IF115
+
+[file:incidentfield-TelefonicaOCM_SourceSystemId.json]
+ignore=IF115
