@@ -16,12 +16,6 @@ args:
   - RESOLVE
   - SUSPEND
   - UPDATE
-- name: transcode
-  default: false
-  description: 'Client transcoding data.'
-  isArray: false
-  required: true
-  secret: false
 - name: type
   default: false
   description: 'Case type: either security or supervision.'

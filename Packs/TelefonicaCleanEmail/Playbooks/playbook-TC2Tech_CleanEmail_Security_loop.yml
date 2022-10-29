@@ -58,7 +58,7 @@ tasks:
       all:
         simple: "yes"
       keysToKeep:
-        simple: TC2Tech.Portal
+        simple: TC2Tech.Portal.Rows
     separatecontext: false
     continueonerrortype: ""
     view: |-

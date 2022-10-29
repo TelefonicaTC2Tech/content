@@ -32,7 +32,7 @@ class QueueMessage:
     def __init__(self, incident):
         cf = incident["CustomFields"]
         self.__siid = cf.get("tc2techserviceincidentid") or None
-        self.__related_ids = None
+        self.__related_incidents = None
         self.__case_id = cf.get("tc2techcaseid") or None
         self.__case_status = CaseStatus[cf.get("tc2techcasestatus", "").strip()]
 
@@ -55,9 +55,9 @@ class QueueMessage:
         return self.__ops
 
     @property
-    def related_ids(self):
-        if self.__related_ids is None:
-            incidents = (
+    def related_incidents(self):
+        if self.__related_incidents is None:
+            self.__related_incidents = (
                 execute_command(
                     "getIncidents",
                     {
@@ -71,24 +71,34 @@ class QueueMessage:
                 ).get("data", [])
                 or []
             )
-
-            self.__related_ids = [inc["id"] for inc in incidents]
-
-        return self.__related_ids
+        return self.__related_incidents
 
     def mark_incidents(self):
-        for inc_id in self.related_ids:
-            execute_command(
-                "setIncident", {"id": inc_id, "tc2techcaseid": self.__case_id}
-            )
-
-    def close_incidents(self):
-        for inc_id in self.related_ids:
+        for inc in self.related_incidents:
+            properties = {"id": inc["id"], "tc2techcaseid": self.__case_id}
+            cf = inc["CustomFields"]
+            if "tc2techservicedata" in cf:
+                service = json.loads(cf["tc2techservicedata"])
+                service["caseId"] = self.__case_id
+                properties["tc2techservicedata"] = json.dumps(service)
+            execute_command("setIncident", properties)
             execute_command(
                 "taskComplete",
                 {
                     "id": "WaitForClicks",
-                    "incidentId": inc_id,
+                    "incidentId": inc["id"],
+                    "comment": "",
+                    "input": "Update",
+                },
+            )
+
+    def close_incidents(self):
+        for inc in self.related_incidents:
+            execute_command(
+                "taskComplete",
+                {
+                    "id": "WaitForClicks",
+                    "incidentId": inc["id"],
                     "comment": "",
                     "input": "Close",
                 },
@@ -102,7 +112,7 @@ def main():
         if all(
             (
                 message.case_status == CaseStatus.OPEN,
-                Operation.CREATE in message.operations,
+                not message.operations.isdisjoint({Operation.CREATE, Operation.NOOP}),
             )
         ):
             message.mark_incidents()
