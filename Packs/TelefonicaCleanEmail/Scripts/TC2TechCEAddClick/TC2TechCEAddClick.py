@@ -39,13 +39,13 @@ def main():
             event = coerce(cf.get("tc2techmodel", "{}") or "{}", dict)
 
             inc = messages[0]
-            cf = inc["CustomField"]
+            cf = inc["CustomFields"]
             alert = coerce(cf.get("tc2techmodel", "{}") or "{}", dict)
             if "events" not in alert:
                 alert["events"] = []
             alert["events"].append(event)
 
-            execute_command("setIncident", {"tc2techmodel": alert})
+            execute_command("setIncident", {"tc2techmodel": json.dumps(alert)})
     except Exception:
         return_error("\n".join((MODULE_NAME, "Error:", traceback.format_exc())))
 

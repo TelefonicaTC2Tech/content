@@ -245,6 +245,23 @@ def main():
     try:
         inc = demisto.incident()
         event = Event(inc)
+
+        service_data = {"technology": "Proofpoint"}
+        if "threatsInfoMap" in event.raw:
+            service_data["threats"] = [
+                {
+                    "campaignId": entry.get("campaignID") or None,
+                    "classification": entry.get("classification"),
+                    "artifact": entry["threat"],
+                    "id": entry.get("threatID"),
+                    "status": entry.get("threatStatus"),
+                    "time": Utils.iso_to_millis(entry.get("threatTime")),
+                    "type": entry.get("threatType"),
+                    "url": entry.get("threatUrl"),
+                }
+                for entry in event.raw["threatsInfoMap"]
+            ]
+
         execute_command(
             "setIncident",
             {
@@ -252,6 +269,7 @@ def main():
                 "tc2techmodel": json.dumps(event.model),
                 "tc2techcemessageid": event.message_id,
                 "tc2techceblocked": event.blocked,
+                "tc2techservicedata": json.dumps(service_data),
             },
         )
 

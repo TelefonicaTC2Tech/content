@@ -40,7 +40,7 @@ def main(**kwargs):
         ocm_model = coerce(cf.get("tc2techmodel", "{}") or "{}", dict)
         operation = Operation[kwargs["operation"]]
         search_class = SearchClass[kwargs["type"]]
-        transcode = coerce(kwargs["transcode"], dict)
+        transcode = coerce(cf.get("tc2techtranscode", "{}") or "{}", dict)
 
         context = {
             "idIncCliente": cf.get("tc2techserviceincidentid"),
@@ -55,6 +55,12 @@ def main(**kwargs):
 
         if "queue" in kwargs:
             context["clientQueue"] = kwargs["queue"]
+
+        if "tc2techservicedata" in cf:
+            service = cf["tc2techservicedata"]
+            if isinstance(service, str):
+                service = json.loads(service)
+            context["service"] = service
 
         alert_key = None
         if search_class == SearchClass.SECURITY:
