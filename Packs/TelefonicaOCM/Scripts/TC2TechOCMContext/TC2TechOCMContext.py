@@ -56,6 +56,12 @@ def main(**kwargs):
         if "queue" in kwargs:
             context["clientQueue"] = kwargs["queue"]
 
+        if "tc2techcase" in cf:
+            case = cf["tc2techcase"]
+            if isinstance(case, str):
+                case = json.loads(case)
+            context["case"] = case
+
         if "tc2techservicedata" in cf:
             service = cf["tc2techservicedata"]
             if isinstance(service, str):

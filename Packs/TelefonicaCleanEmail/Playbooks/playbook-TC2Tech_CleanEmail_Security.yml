@@ -22,7 +22,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 50
         }
       }
@@ -62,7 +62,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 195
         }
       }
@@ -90,7 +90,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 2470
         }
       }
@@ -129,7 +129,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 370
         }
       }
@@ -175,7 +175,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 695,
+          "x": 50,
           "y": 545
         }
       }
@@ -207,7 +207,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 265,
+          "x": 480,
           "y": 545
         }
       }
@@ -265,7 +265,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 720
         }
       }
@@ -298,7 +298,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 895
         }
       }
@@ -352,7 +352,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 1070
         }
       }
@@ -410,7 +410,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 1245
         }
       }
@@ -468,7 +468,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 1420
         }
       }
@@ -481,12 +481,12 @@ tasks:
     isautoswitchedtoquietmode: false
   "12":
     id: "12"
-    taskid: e53f5952-61c3-479d-807b-e81ab8f33e6b
+    taskid: 241548ff-ef93-4d84-850f-aa99b1700159
     type: playbook
     task:
-      id: e53f5952-61c3-479d-807b-e81ab8f33e6b
+      id: 241548ff-ef93-4d84-850f-aa99b1700159
       version: -1
-      name: CE-OCM-Security-loop
+      name: Wait for updates
       description: Loop playbook used in waiting for clicks related to the current
         case.
       playbookName: CE-OCM-Security-loop
@@ -508,13 +508,15 @@ tasks:
                 root: incident
                 accessor: tc2techwait
             iscontext: true
+          right:
+            value: {}
       exitCondition: ""
       wait: 5
       max: 9999
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 1945
         }
       }
@@ -549,7 +551,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 1595
         }
       }
@@ -581,7 +583,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 265,
           "y": 2295
         }
       }
@@ -621,8 +623,8 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 265,
-          "y": 1420
+          "x": 50,
+          "y": 1245
         }
       }
     note: false
@@ -668,8 +670,8 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 265,
-          "y": 1595
+          "x": 50,
+          "y": 1420
         }
       }
     note: false
@@ -695,14 +697,14 @@ tasks:
       brand: ""
     nexttasks:
       ReadyForUpdate:
-      - "21"
+      - "20"
     separatecontext: false
     continueonerrortype: ""
     view: |-
       {
         "position": {
-          "x": 50,
-          "y": 1770
+          "x": 162.5,
+          "y": 1595
         }
       }
     note: false
@@ -733,7 +735,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 480,
+          "x": 50,
           "y": 1770
         }
       }
@@ -780,7 +782,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 265,
+          "x": 50,
           "y": 1945
         }
       }
@@ -813,7 +815,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 1770
         }
       }
@@ -846,7 +848,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 265,
+          "x": 50,
           "y": 2120
         }
       }
@@ -878,7 +880,7 @@ tasks:
     view: |-
       {
         "position": {
-          "x": 910,
+          "x": 592.5,
           "y": 2120
         }
       }
@@ -893,14 +895,13 @@ view: |-
   {
     "linkLabelsPosition": {
       "17_19_#default#": 0.48,
-      "17_20_yes": 0.49,
-      "19_21_ReadyForUpdate": 0.5,
+      "17_20_yes": 0.18,
       "23_14_CaseClosed": 0.51
     },
     "paper": {
       "dimensions": {
         "height": 2485,
-        "width": 1240,
+        "width": 922.5,
         "x": 50,
         "y": 50
       }

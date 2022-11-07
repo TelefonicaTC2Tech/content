@@ -37,6 +37,27 @@
                         ]
                     }
                 },
+                "TC2Tech Case": {
+					"complex": {
+						"filters": [],
+						"root": "Body",
+						"transformers": [
+							{
+								"operator": "ParseJSON"
+							},
+							{
+								"args": {
+									"expression": {
+										"value": {
+											"simple": "context.case"
+										}
+									}
+								},
+								"operator": "jmespath"
+							}
+						]
+					}
+				},
                 "TC2Tech Case Status": {
 					"complex": {
 						"filters": [],
