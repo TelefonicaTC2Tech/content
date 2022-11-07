@@ -124,7 +124,7 @@ def event(ce_event):
         "sourceEventId": click_id,
         "timestamp": Utils.iso_to_millis(raw.get("clickTime")),
     }
-    return {key: value for key, value in data.items() if not value}
+    return {key: value for key, value in data.items() if value is not None}
 
 
 def alert(ce_event):
@@ -244,10 +244,10 @@ class Event:
 def main():
     try:
         inc = demisto.incident()
-        event = Event(inc)
+        evt = Event(inc)
 
         service_data = {"technology": "Proofpoint"}
-        if "threatsInfoMap" in event.raw:
+        if "threatsInfoMap" in evt.raw:
             service_data["threats"] = [
                 {
                     "campaignId": entry.get("campaignID") or None,
@@ -259,16 +259,16 @@ def main():
                     "type": entry.get("threatType"),
                     "url": entry.get("threatUrl"),
                 }
-                for entry in event.raw["threatsInfoMap"]
+                for entry in evt.raw["threatsInfoMap"]
             ]
 
         execute_command(
             "setIncident",
             {
-                "severity": event.level.value,
-                "tc2techmodel": json.dumps(event.model),
-                "tc2techcemessageid": event.message_id,
-                "tc2techceblocked": event.blocked,
+                "severity": evt.level.value,
+                "tc2techmodel": json.dumps(evt.model),
+                "tc2techcemessageid": evt.message_id,
+                "tc2techceblocked": evt.blocked,
                 "tc2techservicedata": json.dumps(service_data),
             },
         )

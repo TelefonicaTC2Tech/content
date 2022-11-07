@@ -36,6 +36,10 @@ class QueueMessage:
         self.__case_id = cf.get("tc2techcaseid") or None
         self.__case_status = CaseStatus[cf.get("tc2techcasestatus", "").strip()]
 
+        self.__case = cf.get("tc2techcase") or {}
+        if isinstance(self.__case, str):
+            self.__case = json.loads(self.__case)
+
         self.__raw = cf.get("tc2techraw", {}) or {}
         if isinstance(self.__raw, str):
             self.__raw = json.loads(self.__raw)
@@ -73,6 +77,18 @@ class QueueMessage:
             )
         return self.__related_incidents
 
+    def ocm_update(self):
+        for inc in self.related_incidents:
+            properties = {
+                "id": inc["id"],
+                "tc2techcase": json.dumps(self.__case),
+                "tc2techcasestatus": self.__case_status.name,
+            }
+            if "summary" in self.__case:
+                properties["name"] = self.__case["summary"]
+
+            execute_command("setIncident", properties)
+
     def mark_incidents(self):
         for inc in self.related_incidents:
             properties = {"id": inc["id"], "tc2techcaseid": self.__case_id}
@@ -108,6 +124,7 @@ class QueueMessage:
 def main():
     try:
         message = QueueMessage(demisto.incident())
+        message.ocm_update()
 
         if all(
             (
