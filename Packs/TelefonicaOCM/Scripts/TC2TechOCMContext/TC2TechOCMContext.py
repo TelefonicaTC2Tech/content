@@ -16,70 +16,88 @@ def coerce(value, _type):
     return result
 
 
-class Operation(enum.Enum):
-    ATTACHMENT_ADD_PORTAL = enum.auto()
-    CANCEL = enum.auto()
-    CLOSE = enum.auto()
-    CREATE = enum.auto()
-    REACTIVATE = enum.auto()
-    REOPEN = enum.auto()
-    RESOLVE = enum.auto()
-    SUSPEND = enum.auto()
-    UPDATE = enum.auto()
+class Context:
+    class SearchClass(enum.Enum):
+        SECURITY = "com.elevenpaths.sandas.input.SecurityAlert"
+        SUPERVISION = "com.elevenpaths.sandas.input.SupervisionAlert"
 
+    class Operation(enum.Enum):
+        ATTACHMENT_ADD_PORTAL = enum.auto()
+        CANCEL = enum.auto()
+        CLOSE = enum.auto()
+        CREATE = enum.auto()
+        REACTIVATE = enum.auto()
+        REOPEN = enum.auto()
+        RESOLVE = enum.auto()
+        SUSPEND = enum.auto()
+        UPDATE = enum.auto()
 
-class SearchClass(enum.Enum):
-    SECURITY = "com.elevenpaths.sandas.input.SecurityAlert"
-    SUPERVISION = "com.elevenpaths.sandas.input.SupervisionAlert"
+    def __init__(self, **kwargs):
+        self.__incident_id = kwargs["id"]
+        self.__type = self.SearchClass[kwargs["type"]]
+        self.__op = self.Operation[kwargs["operation"]]
+        self.__src_system_id = kwargs["src_system_id"]
+        self.__raw = kwargs["raw"]
+        self.__transcode = kwargs["transcode"]
+        self.__queue = kwargs["queue"]
+        self.__service = kwargs["service"]
+        self.__new_notes = kwargs["new_notes"]
+
+    def to_dict(self):
+        data = {
+            "idIncCliente": self.__incident_id,
+            "searchClass": self.__type.value,
+            "operation": self.__op.name,
+            "lastEventSourceSystem": self.__src_system_id,
+            "securityAlerts": [],
+            "supervisionAlerts": [],
+            "rawEvent": json.dumps(self.__raw),
+            "transcode": self.__transcode,
+        }
+
+        if self.__queue is not None:
+            data["clientQueue"] = self.__queue
+
+        if len(self.__service) > 0:
+            data["service"] = self.__service
+
+        if all((self.__op == self.Operation.UPDATE, len(self.__new_notes) > 0)):
+            data["newNotes"] = self.__new_notes
+
+        alert_key = None
+        if self.__type == self.SearchClass.SECURITY:
+            alert_key = "securityAlerts"
+        elif self.__type == self.SearchClass.SUPERVISION:
+            alert_key = "supervisionAlerts"
+        data[alert_key].append(self.__raw)
+
+        return data
 
 
 def main(**kwargs):
     try:
         inc = demisto.incident()
         cf = inc["CustomFields"]
-        ocm_model = coerce(cf.get("tc2techmodel", "{}") or "{}", dict)
-        operation = Operation[kwargs["operation"]]
-        search_class = SearchClass[kwargs["type"]]
-        transcode = coerce(cf.get("tc2techtranscode", "{}") or "{}", dict)
-
-        context = {
-            "idIncCliente": cf.get("tc2techserviceincidentid"),
-            "searchClass": search_class.value,
-            "operation": operation.name,
-            "lastEventSourceSystem": cf.get("tc2techsourcesystemid"),
-            "securityAlerts": [],
-            "supervisionAlerts": [],
-            "rawEvent": json.dumps(ocm_model),
-            "transcode": transcode,
+        params = {
+            "id": cf.get("tc2techserviceincidentid"),
+            "type": kwargs["type"],
+            "operation": kwargs["operation"],
+            "src_system_id": cf.get("tc2techsourcesystemid"),
+            "raw": coerce(cf.get("tc2techmodel", {}) or {}, dict),
+            "transcode": coerce(cf.get("tc2techtranscode", {}) or {}, dict),
+            "queue": kwargs.get("queue"),
+            "service": coerce(cf.get("tc2techservicedata", {}) or {}, dict),
+            "new_notes": coerce(cf.get("tc2technewnotes", []) or [], list),
         }
+        execute_command("setIncident", {"tc2technewnotes": "[]"})
 
-        if "queue" in kwargs:
-            context["clientQueue"] = kwargs["queue"]
-
-        if "tc2techcase" in cf:
-            case = cf["tc2techcase"]
-            if isinstance(case, str):
-                case = json.loads(case)
-            context["case"] = case
-
-        if "tc2techservicedata" in cf:
-            service = cf["tc2techservicedata"]
-            if isinstance(service, str):
-                service = json.loads(service)
-            context["service"] = service
-
-        alert_key = None
-        if search_class == SearchClass.SECURITY:
-            alert_key = "securityAlerts"
-        elif search_class == SearchClass.SUPERVISION:
-            alert_key = "supervisionAlerts"
-        context[alert_key].append(ocm_model)
+        context = Context(**params)
 
         return_results(
             CommandResults(
                 outputs_prefix="TC2Tech.OCM.Context",
                 outputs_key_field="idIncCliente",
-                outputs=context,
+                outputs=context.to_dict(),
             )
         )
     except Exception:
